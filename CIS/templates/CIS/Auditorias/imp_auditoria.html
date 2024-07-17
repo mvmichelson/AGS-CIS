@@ -1,0 +1,75 @@
+<!Programa HTML                                           >
+<!Despliega el formulario para la creacion de una Auditoria desde Excel>
+<!Programado por Marco A. Villalobos M.                   >
+<!========================================================>
+
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+	{% block enc_activo %}
+
+	<ul class="encabezado_A">
+	<p><bb><strong>***&emsp;I M P O R T A &emsp;  A U D I T O R I A&emsp; ***</strong></bb></p>
+	</ul>
+
+	{% endblock %}
+
+
+	{% block declara %}
+	
+    	<form  id="seleccion-form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+			<ul class="scr4">
+			
+			<strong>Seleccione Planilla Excel con Auditoria a Importar :</strong>
+			<br/>&emsp;{{form.ruta}}
+			<br/>
+			<button type="submit">Importar Auditoria </button>
+	 		
+			</ul>
+		</form>
+
+		<div id="procesando" style="display: none;">
+			<img src="/static/img/procesando_3.gif" alt="Procesando...">
+			<p>Procesando...</p>
+		</div>
+	
+	{% endblock %}
+
+
+<script>
+//console.log("¡Hola, mundo!"); // Imprime "¡Hola, mundo!" en la consola
+
+document.addEventListener('DOMContentLoaded', function () {
+    const registroForm = document.getElementById('seleccion-form');
+    const procesandoDiv = document.getElementById('procesando');
+
+    registroForm.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Evita que el formulario se envíe de inmediato
+
+        // Muestra la imagen de "procesando"
+        procesandoDiv.style.display = 'block';
+
+        // Simula un proceso de grabación (puedes reemplazar esto con tu lógica real)
+        setTimeout(function () {
+            // Aquí iría la lógica para enviar el registro al servidor (por ejemplo, mediante una petición AJAX)
+            // Por ahora, simplemente ocultamos la imagen de "procesando"
+            procesandoDiv.style.display = 'none';
+            alert('Auditoria importada correctamente.');
+
+            // Continúa con el flujo normal del formulario (por ejemplo, submit del formulario)
+            registroForm.submit();
+        }, 2000); // Simulamos un proceso de 2 segundos
+    });
+});
+
+
+
+</script>
+
+{% endblock %}

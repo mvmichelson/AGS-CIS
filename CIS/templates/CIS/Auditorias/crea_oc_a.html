@@ -1,0 +1,52 @@
+<!Programa HTML                                           >
+<!Crea un OC en la Auditoria >
+<!Programado por Marco A. Villalobos M.                   >
+<!========================================================>
+
+{% extends "base_generic.html" %}
+{% block content %}
+
+{% block encabezado2 %}
+<ul class="encabezado_B">
+	<p><strong>F R A M E W O R K S</strong></p>
+	<p><strong>CREACION OBJETIVO DE CONTROL</strong></p>
+	
+</ul>
+<ul class="encabezado_B">
+	<p><strong>{{audit.cod_aud}}:&emsp;{{audit.nombre}}&emsp;&#9671&emsp;&emsp;{{modulo.item}}.-&emsp;{{modulo.nombre}}</strong></p>
+</ul>
+{% endblock %}
+
+
+	{% block declara %}
+
+    	<form action="" method="post">
+          {% csrf_token %}
+
+			<ul class="scr4">
+			<p>Codigo ..........:&emsp;{{form.item }}</p>
+			<p>Nombre   ...........:&emsp;{{form.nombre }}</p>
+			<p>Definicion ...........:&emsp;{{form.descripcion }}</p>
+			
+			<br/>
+			<p> <input type="submit" value="Crea OC" id="boton" /></p>
+	 		
+		</form>
+			<a href="{{ request.META.HTTP_REFERER }}"><span style='font-size:30px;'>&#128281</span></a>
+			</ul>
+		
+	
+	
+	{% endblock %}
+
+{% endblock %}
+
+<script>
+	// Asegura que el boton se submit se presiona solo una vez evitando duplicar el registro en la Base
+		$(document).ready(function() {
+			var submitButton = $('boton');  // Reemplaza con el ID de tu botón
+			submitButton.on('click', function() {
+				submitButton.prop('disabled', true);
+			});
+		});
+</script>

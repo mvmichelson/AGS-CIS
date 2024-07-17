@@ -1,0 +1,51 @@
+<!Programa HTML                                           >
+<!Crea un Modulo en la Auditoria                          >
+<!Programado por Marco A. Villalobos M.                   >
+<!========================================================>
+
+{% extends "base_generic.html" %}
+{% block content %}
+
+{% block encabezado2 %}
+<ul class="encabezado_B">
+	<p><strong>A U D I T O R I A S</strong></p>
+	<p><strong>C R E A C I O N &emsp; M O D U L O&nbsp;/&nbsp;R I E S G O</strong></p>
+	
+</ul>
+<ul class="encabezado_B">
+	<p><strong>{{mod.item}}:{{mod.nombre}}</p>
+</ul>
+{% endblock %}
+
+
+	{% block declara %}
+
+    	<form action="" method="post">
+          {% csrf_token %}
+
+			<ul class="scr4">
+			<p>Codigo  ..............:&emsp;{{form.item }}</p>
+			<p>Nombre   ...........:&emsp;{{form.nombre }}</p>
+			
+			<br/>
+			<p> <input type="submit" value="Crea Modulo" id="boton" /></p>
+	 		
+		</form>
+			<a href="{{ request.META.HTTP_REFERER }}"><span style='font-size:30px;'>&#128281</span></a>
+			</ul>
+		
+	
+	
+	{% endblock %}
+
+{% endblock %}
+
+<script>
+	// Asegura que el boton se submit se presiona solo una vez evitando duplicar el registro en la Base
+		$(document).ready(function() {
+			var submitButton = $('boton');  // Reemplaza con el ID de tu botón
+			submitButton.on('click', function() {
+				submitButton.prop('disabled', true);
+			});
+		});
+</script>

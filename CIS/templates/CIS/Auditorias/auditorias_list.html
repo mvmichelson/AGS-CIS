@@ -1,0 +1,88 @@
+<!Programa en HTML>
+<!Despliega lista de Auditorias definidas  >
+<!Programado por Marco A. Villalobos Michelson>
+<!==============================================>
+
+{% extends "base_generic.html" %}
+
+
+{% block content %}
+
+{% block encabezado2 %}
+	<ul class="encabezado_B">
+        <strong>*** A U D I T O R I A S ***</strong>
+	</ul>
+{% endblock %}
+
+	<ul class="scr">
+		<br/>	
+
+		<table class="lta">
+		   <thead class="encabezado_N" style="text-align: center">
+		   <tr>
+			<th scope="col">Codigo</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Fec.Inicio</th>
+			<th scope="col">Fec.Termino</th>
+			<th scope="col">Auditor Encargado</th>
+			<th scope="col">Estado</th>
+			<th scope="col" style="text-align: center"><a href="{% url 'Crea-Auditoria' %}"><strong ><sa style="font-size:20px">&#10010</sa></a>&nbsp;&nbsp;
+							<a href="{% url 'Imp-AuditfromExcel' %}"><img src="/static/img/logo_excel_31.png"
+								width="20" height="20" alt="Importar desde Excel"></a>
+						</th>
+		   
+			</tr>
+		   </thead>
+
+		   <body>
+			{% if lista_auditorias %}
+
+		    	{%for aud in lista_auditorias.all  %}
+		    	<tr>
+				<th scope="row"><bb>{{aud.cod_aud}}<bb></th>
+				<th scope="row"><bb>{{aud.nombre}}<bb></th>
+				<th scope="row"><bb>{{aud.fec_ini}}<bb></th>
+				<th scope="row"><bb>{{aud.fec_ter}}<bb></th>
+				<th scope="row"><bb>{{aud.auditor_ejec}}<bb></th>
+				<th scope="row"><bb>{{aud.get_status_display}}<bb></th>
+					<th scope="row">
+						<a href="{% url 'Lista-Mod' aud.pk  %}" alt="Ver Auditoria">&#128203</a>&nbsp;
+						<a href="{% url 'index' %}">&#128065</a>&nbsp;
+						<a href="{% url 'index' %}">&#128465</a>&nbsp;
+						<a href="{% url 'Exp-AudittoExcel' aud.pk %}"><img src="/static/img/logo_excel.png"
+							width="15" height="15"></a>
+					</th>
+				
+		    	</tr>
+       		    {% if not forloop.last %}
+        	        {%endif%}
+      		    {%endfor%}
+		   
+			{%else%}
+				  <p> No hay Auditorias definidas</p>
+		  	{%endif%}
+
+		   	<tbody>
+			
+		</table>
+		    
+	</ul>
+
+
+
+{%block pie%}
+	<br/>
+	<ul class="encabezado_SB">
+	
+
+	<strong><sa style="font-size:12px">&#10010</sa>:<tm>Crea Auditoria&emsp;</tm></strong>
+	<strong><sa style="font-size:12px">&#128203</sa>:<tm>Ir a Auditoria&emsp;</tm></strong>
+	<img src="/static/img/logo_excel.png" width="25" height="25">:<tm>Exportar a Excel&emsp;</tm></strong>
+	<img src="/static/img/logo_excel_31.png" width="25" height="25">:<tm>Importar desde Excel&emsp;</tm></strong>
+
+	
+	</ul>
+{% endblock %}
+
+
+{% endblock %}

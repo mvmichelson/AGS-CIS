@@ -1,0 +1,391 @@
+body {
+  margin: 0;
+  /* background-image: url('static/image/LogoBCP.jpg'); */
+  /* height: 30vh; */
+}
+
+.chart {
+	width: 100%;
+	min-height: 400px;
+}
+
+.fondo_img {
+
+	background: url("/static/img/R.jpeg")  10% 0 no-repeat fixed;
+    	color: white;
+    	height: 425px;
+	/*width : 500px;*/
+    	padding: 100px 0 0 0;
+	border: 10px solid black;   
+	
+}
+
+.indenta { padding-left: 150px; /* Ajusta la cantidad de indentación deseada */ }
+
+
+
+/* Barras de encabezado y pie de pagina */
+.encabezado {
+	text-color:blue;
+	background: rgba(0, 111, 134, 0.5); /* Azul agua */
+	text-align: right; 
+	font-size: 30px;
+	padding: 2px;
+}
+
+.encabezado_A {
+	
+	background: rgba(255, 153, 0, 0.9); /* Encabezado ladrillo*/
+	text-align: center;
+	/* font-size: 15px;*/
+	/* font-color: white; */
+	/*padding: 1px; */
+	/*border: 2px solid black;*/
+	
+}
+
+.encabezado_B {
+	
+	text-align: center;
+	/* font-size: 15px;*/
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.encabezado_N {
+	background:black; /* Negro*/
+	text-align: center;
+	font-size: 12px;
+	padding: 1px;
+	
+}
+
+.encabezado_SB {
+	/* Utilizado en pie de pantalla en listados de Auditoria y Framework. Sin color de fondo */
+	text-align: center;
+	/* font-size: 15px;*/
+	padding: 0px;
+	border: 1px solid black;
+	border-radius: 5px;
+	
+}
+
+
+.encabezado_C {
+	background:rgba(102, 255, 102, 1); /*Color verde. Usada en cabecera de listado de auditorias/
+	text-align: center;
+
+	font-size: 15px;
+	padding: 0px;
+}
+
+.encabezado_D {
+	background:rgba(0, 138, 71, 1); /*Color verde. Usada en cuadro de Logs*/
+	text-align: center;
+	padding: 5px;
+}
+
+.encabezado_E {
+	background:rgba(0, 0, 102, 1); /*Color azul. Usada en Formularios de Datos Maestros*/
+	text-align: center;
+	padding: 5px;
+}
+
+.sidebar-nav {
+	font-family: sans-serif;
+    	font-size: 1.1rem;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin-top:0px;
+	heigth:100%;
+	width:100%;
+	padding: 10px;
+	list-style: none;
+	/* background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
+	
+}
+
+.sesion {
+	heigth:0;
+	text-align: right;
+	padding: 0;
+	background: rgba(0, 111, 134, 0.5); /* Azul agua */
+	heigth:100%;
+}
+
+.FondoP {
+	/*background: #FFFAD8 url('images/LogoBCP.png') scroll;*/
+	background-image: url('images/LogoBCP.png');
+	background: rgba(0, 128, 0, 0.3); /* Green background with 30% opacity */
+	margin-right=70px;
+
+}
+
+.Fondo_C {
+	background: rgba(255, 99, 71, 0.3);
+	width: 100%;
+	height: auth;
+	border: 2px solid black;
+	padding:10px;
+}
+
+.FondoD {
+	background: rgba(0, 0, 102, 0.9);   /* Fondo Azul */
+	width: 100%;
+	height: auth;
+	border: 2px solid black;
+	padding:10px;
+}
+
+/* .Fondo_T { /* Fondo para Tablas */
+	background: rgba(128, 128, 128, 0.5);
+	width: 100%;
+	height: 100%;
+	border: 2px solid black;
+	padding:10px;
+    	letter-spacing: 2px;
+    	font-family: sans-serif;
+    	font-size: 1.1rem;	
+*/
+
+
+
+
+/* ----- FORMATOS DE TEXTO ----- */
+a {
+	margin-top:50px;
+	color:blue;
+	heigth:20px;
+	width:20px;
+	padding:5px;
+	
+}
+
+aa {
+	margin-top:5px;
+	font-family: sans-serif;
+    	font-size: 1.2rem;
+	color:green;
+	padding:0px;
+		
+}
+
+ab {	
+	margin-top:5px;
+	font-family: sans-serif;
+    	font-size: 3rem;
+	color:green;
+		
+}
+
+bl {
+	margin-top:5px;
+	color:white;
+		
+}
+
+bb { 
+	color:black;
+	font-size: 0.95rem;
+}
+
+bn { 
+	color:black;
+	font-family: sans-serif;
+	font-size: 1.2rem;
+}
+
+am {
+	margin-top:5px; 
+	color:rgba(255, 215, 0, 1);
+}
+
+sa { 	margin-top:5px;                      
+	color:rgba(255, 153, 0, 0.9); 
+	font-family: sans-serif;
+    	font-size: 1.2rem;
+}
+
+rr {
+	margin-top:5px; 
+	color:red;
+}
+
+der {
+	text-align: center;
+	width:100%;	
+}
+
+ii { 
+	text-align: left;
+	width:100%;
+
+   }
+
+tm {
+	font-family: sans-serif;
+    	font-size: 1.0rem;	
+}
+
+
+/* ----- MARCOS CON SCROLL ------ */	
+
+.scr {
+  background:rgba(0, 128, 0, 0.2) /* Fondo verde agua (usado en fondos de listas  de Mapeo) */
+
+  width: 100%;
+  height: 60vh;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.scrb {
+  background: rgba(255, 153, 0, 0.3); /* Fondo ladrillo  (usado en fondos de listas  de Procedimientos de Contingencia) */
+  width: 100%;
+  height: 60vh;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.scr2 { /* Usar para porcion superior de pantalla */
+  background: rgba(255, 99, 71, 0.2); 
+  width: 100%;
+  height: 30vh;
+  border: 1px solid black;
+  overflow: scroll;
+  padding:5px;
+}
+
+.scr3 {  /* Usar para porcion inferior de pantalla */
+  background: rgba(255, 99, 71, 0.2);  
+  width: 100%;
+  height: auth;
+  border: 1px solid black;
+  overflow: scroll;
+  padding:5px;
+}
+
+/* Marcos sin Scroll */	
+
+.scr4 {  /*  */
+  background: rgba(255, 99, 71, 0.2);  
+  width: 100%;
+  height: auth;
+  border: 1px solid black;
+  padding:5px;
+}
+
+/* Cuadros */
+
+thead,
+tfoot {
+    background-color: rgba(0, 0, 153, 0.8); /*#3f87a6;*/
+    color: #fff;
+}
+
+tenc {
+    background-color:#3f87a6;
+    color: #fff;
+}
+
+
+tbody {
+    background-color: white;  /*#e4f0f5;*/ 
+    
+}
+
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+}
+
+.lta{
+    padding: 0px;
+    border-collapse: collapse;
+    border: 2px solid rgb(0, 0, 102);
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+
+td,
+th {
+    border: 1px solid  rgb(0,0,102);          /* rgb(190, 190, 190);*/
+    padding: 1px 10px;
+}
+
+td {
+    text-align: rigth;
+}
+
+
+/* ComboBox */
+
+.selector{
+    float:none;
+    display:block;
+    height:330px;
+}
+
+.selector input[type="submit"]{
+    display:block;
+    clear:both;
+}
+
+.selector h2{
+    font-size:15px;
+}
+.selector  select{
+    margin: 2px 0;
+    padding: 2px 3px;
+    font-weight: normal;
+    width: 270px !important;
+    height: 17.2em;
+}
+
+textarea{
+    display:block;
+    width:450px;
+}
+
+
+.blink {
+    animation: blinker 2.5s linear infinite;
+    /*color: red;*/
+    /*font-family: sans-serif;*/
+}
+@keyframes blinker {
+            50% {
+                opacity: 0;
+   }
+}
+
+/* ----- BOX DE ENTRADAS DE DATOS (Widgets)  ------ */
+
+.inbox_1 {
+  	background: rgba(255, 153, 0, 0.1); /* Fondo ladrillo  (usado en fondos de listas  de Procedimientos de Contingencia) */
+ 	width: 100%;
+  	height: 60%;
+  	border: 1px solid black;
+	border-radius: 10px;
+  	overflow: scroll;
+}
+
+.inbox_2 {
+  	
+ 	width: 100%;
+  	height: 30%;
+  	border: 1px solid black;
+	border-radius: 10px;
+  	
+}
+
+.inbox_3 {
+  	
+ 	border: 1px solid black;
+	border-radius: 10px;
+  	
+}
+

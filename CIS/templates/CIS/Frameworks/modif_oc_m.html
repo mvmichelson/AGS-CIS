@@ -1,0 +1,43 @@
+<!Programa HTML                                           >
+<!Modifica un OC en Framework >
+<!Programado por Marco A. Villalobos M.                   >
+<!========================================================>
+
+{% extends "base_generic.html" %}
+{% block content %}
+
+{% block encabezado2 %}
+<ul class="encabezado_B">
+	<p><strong>F R A M E W O R K S</strong></p>
+	<p><strong>CREACION OBJETIVO DE CONTROL</strong></p>
+	
+</ul>
+<ul class="encabezado_B">
+	<p><strong>{{frame.fw_nombre}}v.{{frame.fw_version}}</strong></p>
+	<p><strong>{{mod.item}}.-{{mod.nombre}}</strong></p>
+</ul>
+{% endblock %}
+
+
+	{% block declara %}
+
+    	<form action="" method="post">
+          {% csrf_token %}
+
+			<ul class="scr4">
+			<p>Nro. Item ..........:&emsp;{{form.item }}</p>
+			<p>Nombre   ...........:&emsp;{{form.nombre }}</p>
+			<p>Definicion ...........:&emsp;{{form.descripcion }}</p>
+			
+			<br/>
+			<p> <input type="submit" value="Modifica OC" /></p>
+	 		
+		</form>
+			<a href="{{ request.META.HTTP_REFERER }}"><span style='font-size:30px;'>&#128281</span></a>
+			</ul>
+		
+	
+	
+	{% endblock %}
+
+{% endblock %}

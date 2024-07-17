@@ -1,0 +1,133 @@
+<!Programa HTML>
+<!Sistema: AGS/CIS-Audit
+<!Lista los Modulos y Objetivos de Control de la Auditoria>
+<!Programado por Marco A. Villalobos M>
+<!===============================================>
+
+
+{%extends "base_generic.html"%}
+
+
+{% block content %}
+
+	{% block encabezado2 %}
+	<ul class="encabezado_B">
+    		 <yy><p><strong>M A T R I Z&emsp;D E&emsp;R I E S G O S / O B J E T I V O S&emsp;D E&emsp;C O N T R O L</strong></p></yy>
+			 <yy><strong>{{auditorias.nombre}}&emsp;</strong></yy>
+			
+	</ul>
+	{% endblock %}
+	
+	{%block lista%}
+	<ul class="scr">  
+        <!-- 2 -->        
+		{% for modulo in lista_modulos.all %}
+			<p>
+
+			<! Indenta >
+			{% for i in modulo.numero %} &nbsp;&nbsp; {% endfor %}
+  
+			<!**********************>
+			<!* Despliega Opciones *>
+			<!**********************>
+
+			<!Abre o Cierra Modulo>
+			<a href="{% url 'Abre-Cierra-A'  modulo.pk  %}"><bb style="font-size:15px">
+				
+				{%if modulo.abierto %}
+				<strong>&#8681</strong></bb>
+				{%else%}
+				<strong>&#8680</strong></bb>
+				{%endif%}
+			
+			</a>
+
+
+			<!Crea Modulo>
+			<a href="{% url 'Crea-Mod'  modulo.pk  %}"><sa style="font-size:12px"><strong>&#10010</strong></sa></a>
+
+			{% if modulo.item != '0.- Root' %}
+
+			<!Crea Objetivo de Control>
+			<a href="{% url 'Crea-OC' modulo.pk  %}"><strong style="font-size:10px">&#128721</strong></a>
+			
+			<!Borra Modulo>
+			<a href="{% url 'Borra-Mod' modulo.pk  %}"><strong style="font-size:12px"><sa>&#128465</sa></strong></a>
+
+			{%endif%}
+
+							   
+			<!****************************>
+			<!Despliega datos del Modulo *>
+			<!****************************>
+			&nbsp;<strong>{{modulo.item}}.-&nbsp;{{modulo.nombre}}</strong>
+
+				<!********************************************>
+				<!* Despliega Objetivos de Control del Modulo*>
+				<!********************************************>
+				{% if modulo.abierto %}
+
+					<!-- 1 -->
+					{% for lista in matriz_oc %}
+						<!-- if 0 -->
+						{% if lista.modulo == modulo.pk %}
+						    <!--0-->
+							{% for oc in lista.lista_oc %}
+								<p>
+									<! Indenta >
+									{% for i in oc.numero %} &nbsp;&nbsp; {% endfor %}
+						
+								<!**********************>
+								<!* Despliega Opciones *>
+								<!**********************>
+		 
+							 	<!Modifica OC>
+								 <a href="{% url 'index'  %}"><strongs style="font-size:10px"><aa>&#128393</aa></strong></a>
+		 
+							 	<!Borra Objetivo de Control>
+								 <a href="{% url 'Borra-OC' oc.pk  %}"><sa><strong style="font-size:12px">&#128465</strong></sa></a>
+
+								 <!************************>
+								 <!Despliega datos del OC *>
+								 <!************************>
+
+								 <strong>{{oc.obj_item}}.-&nbsp;<aa>{{oc.obj_nombre}}</aa></strong>
+								 
+								 <div class='indenta'>
+								 	<p style="font-size:11px">
+									{{oc.obj_descripcion}}
+									</p>
+								 </div>
+								 
+
+								</p>
+
+							{%endfor%}
+							<!--0-->
+
+						{%endif%}
+						<!-- 0 -->
+
+					{%endfor%}
+					<!-- 1 -->
+				{%endif%}
+
+			</p>
+		{% endfor %}
+		<!-- 2 -->
+
+				
+	</ul>
+	{%endblock%}
+
+
+	{%block pie%}
+	<ul class="encabezado_SB">
+		
+    	<strong><sa style="font-size:12px">&#10010</sa>:<tm>Crea Modulo&emsp;</tm></strong>
+		<strong><sa style="font-size:12px">&#128721</sa>:<tm>Crea Riesgo/OC&emsp;</tm></strong>
+		<strong><sa style="font-size:12px">&#128465</sa>:<tm>Elimina&emsp;</tm></strong>
+	</ul>
+	{% endblock %}
+
+{%endblock%}

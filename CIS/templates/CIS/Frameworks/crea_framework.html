@@ -1,0 +1,51 @@
+<!Programa HTML                                           >
+<!Despliega el formulario para la creacion de un DRP >
+<!Programado por Marco A. Villalobos M.                   >
+<!========================================================>
+
+{% extends "base_generic.html" %}
+{% block content %}
+
+	{% block enc_activo %}
+
+	<ul class="encabezado_A">
+	<p><bb><strong>***&emsp;C R E A  &emsp; F R A M E W O R K&emsp; ***</strong></bb></p>
+	</ul>
+
+	{% endblock %}
+
+
+	{% block declara %}
+
+    	<form action="" method="post">
+          {% csrf_token %}
+
+			<ul class="scr4">
+			<!-- <p>Codigo......:&emsp;{{form.codigo}}</p> -->
+			<p>Nombre..........:&emsp;{{form.nombre }}</p>
+			<p>Version...........:&emsp;{{form.version }}</p>
+			<p>Descripcion.......:&emsp;{{form.descripcion }}</p>
+			<p>Institucion Emisora...:&emsp;{{form.institucion}}</p>
+
+			<br/>
+			<p> <input type="submit" value="Crea FrameWork"  id="boton"/></p>
+	 		
+		</form>
+			<a href="{{ request.META.HTTP_REFERER }}"><span style='font-size:30px;'>&#128281</span></a>
+			</ul>
+		
+	
+	
+	{% endblock %}
+
+{% endblock %}
+
+<script>
+	// Asegura que el boton se submit se presiona solo una vez evitando duplicar el registro en la Base
+		$(document).ready(function() {
+			var submitButton = $('boton');  // Reemplaza con el ID de tu botón
+			submitButton.on('click', function() {
+				submitButton.prop('disabled', true);
+			});
+		});
+</script>

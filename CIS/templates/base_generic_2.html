@@ -1,0 +1,124 @@
+<!Programa en HTTML>
+<!Despliega el Menu de la pagina Index para despliegue del Mensaje de Error x Sesion>
+<!Programado por Marco A. Villalobos Michelson>
+<!============================================>
+
+<html lang="en">
+
+<head>
+
+  {% block title %}
+  <title>
+    defcon-5/BCP
+  </title>
+  {% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <!-- Add additional CSS in static file-->
+{% load static %}
+ 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+</head>
+<body>
+
+{% block encabezado %}
+<ul class="encabezado">
+<a href="{% url 'Declara-Incidente' %}">&#128222</a>
+<strong>&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+    <!Normal>
+    <aa>defcon-5/ bcp</aa>
+
+
+</strong>
+
+</ul>
+{% endblock %}
+
+
+
+
+<! despliega la opcion Login o Logout dependiendo del estado de la sesion>
+{% block sesion %}
+<ul class="encabezado_E">
+    <li class='blink'><strong><am>***  E  R  R  O  R  ***</am></strong></li>              
+</ul>
+{% endblock %}
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+      
+      <! Define la barra de Menu de opciones>
+      {% block sidebar %}
+      <ul class="sidebar-nav">
+
+      			<li><aa><strong>MENU*</strong></aa></li>
+	   	 	<br/> 
+           		<li><a href="{% url 'index' %}"><strong><span style='font-size:20px;'>&#8680</span>.Principal</strong></li>
+			<br/> 
+			<li> <aa><strong>&#9971.Mapeo</strong></aa></li>
+				
+            		<li>&nbsp;<a href="{% url 'Lista-Procesos' %}">&nbsp;<strong>&#10146&nbsp;Procesos</strong></a></li>
+			<li>&nbsp;<a href="{% url 'Lista-Evaluaciones' %}">&nbsp;<strong>&#10146&nbsp;Analisis Impacto</strong></a></li>
+			<li>&nbsp;<a href="{% url 'Lista-Recursos' %}">&nbsp;<strong>&#10146&nbsp;Servics. Criticos</a></strong></li>
+			<li>&nbsp;<a href="{% url 'Lista-Escenarios' %}">&nbsp;<strong>&#10146&nbsp;Escen.de.Riesgo</strong></a></li>
+			
+			<br/>
+			<li/><aa><strong>&#128213.Procedim. Contingencia</strong></aa></li>
+			
+			<li>&nbsp;<a href="{% url 'Lista-Proced' %}"><strong>&#10146.Procedimientos</strong></a></li>
+			<li>&nbsp;<a href="{% url 'index' %}"><strong>&#10146.DRP</a></strong></li>
+			<br/>
+            		<li><a href="{% url 'Lista-Incidentes' %}"><rr><strong>&#129519.Adm. Incidentes</strong></rr></a></li>
+			<br/>
+            		<li><a href="{% url 'menu-conf' %}"><strong>&#9965.Configuracion</strong></a></li>            		
+		           
+            <! Opciones que aparecerian si el usuario esta conectado a sesion>
+            {% if user.is_authenticated %}
+                <!Definir en caso necesario>          
+                        
+            {% endif %}
+          
+         
+      </ul>
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">
+      {% block content %}{% endblock %}
+      
+{% block pagination %}
+<! *** Esta seccion de codigo permite paginar el despliegue de la lista de acuerdo a
+la variable paginate_by en views.py***>
+  {% if is_paginated %}
+      <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previa</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Proximo</a>
+              {% endif %}
+          </span>
+      </div>
+  {% endif %}
+{% endblock %}
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
